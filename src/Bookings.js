@@ -1,21 +1,19 @@
-import React from "react";
-import Search from "./Search.js";
-// import SearchResults from "./SearchResults.js";
-// import FakeBookings from "./data/fakeBookings.json";
+import React, { Component } from "react";
+import SearchResults from "./components/SearchResults";
+import fakeBookings from "./data/fakeBookings";
 
-const search = searchVal => {
-  console.info("TO DO!", searchVal);
-};
+export default class Bookings extends Component {
+  search = () => {
+    console.info("TO DO!");
+  };
 
-const Bookings = () => {
-  return (
-    <div className="App-content">
-      <div className="container">
-        <Search search={search} />
-        {/* <SearchResults results={FakeBookings} /> */}
+  render() {
+    return (
+      <div className="App-content">
+        <div className="container">
+          <SearchResults results={fakeBookings} />
+        </div>
       </div>
-    </div>
-  );
-};
-
-export default Bookings;
+    );
+  }
+}
