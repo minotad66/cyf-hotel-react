@@ -4,6 +4,7 @@ import "./App.css";
 import Heading from "./components/Heading";
 import TouristInfoCards from "./components/TouristInfoCards";
 import Footer from "./components/Footer";
+import Search from "./Search";
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
     return (
       <div className="App">
         <Heading headingHeader="CYF HOTEL" />
+        <Search />
         <div className="cards-container">
           <TouristInfoCards
             source="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Palace_of_Westminster_from_the_dome_on_Methodist_Central_Hall.jpg/1000px-Palace_of_Westminster_from_the_dome_on_Methodist_Central_Hall.jpg"
