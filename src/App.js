@@ -14,7 +14,7 @@ class App extends Component {
     ];
     return (
       <div className="App">
-        <Heading headingHeader="FIVE STAR CYF HOTEL" />
+        <Heading headingHeader="CYF HOTEL" />
         <div className="cards-container">
           <TouristInfoCards
             source="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Palace_of_Westminster_from_the_dome_on_Methodist_Central_Hall.jpg/1000px-Palace_of_Westminster_from_the_dome_on_Methodist_Central_Hall.jpg"

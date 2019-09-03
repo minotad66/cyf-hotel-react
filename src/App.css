@@ -20,7 +20,9 @@
   font-size: large;
   font-size: 1.5rem;
   text-align: center;
-  color: #1b1a1ae7;
+  font-family: "Lora", serif;
+  background-color: #1b1a1ae7;
+  color: #fff;
 }
 
 @keyframes App-logo-spin {
