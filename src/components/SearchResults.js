@@ -18,13 +18,15 @@ const SearchResults = props => {
       </td>
     </tr>
   ));
-  const handleRearchResults = () => {
+
+  const handleRearchResults = tr => {
     console.log("Hello, welcome to react");
   };
+
   return (
-    <table class="table table-striped">
+    <table className="table table-striped">
       <thead>
-        <tr onClick={handleRearchResults}>
+        <tr onClick={handleRearchResults(this)}>
           <th scope="col" />
           <th scope="col">Title</th>
           <th scope="col">FirstName</th>

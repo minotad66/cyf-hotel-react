@@ -5,6 +5,7 @@ import Heading from "./components/Heading";
 import TouristInfoCards from "./components/TouristInfoCards";
 import Footer from "./components/Footer";
 import Search from "./Search";
+import Restaurant from "./Restaurant";
 
 class App extends Component {
   render() {
@@ -38,6 +39,7 @@ class App extends Component {
           />
         </div>
         <Bookings />
+        <Restaurant />
         <Footer array={footerArray} />
       </div>
     );
