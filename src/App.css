@@ -70,3 +70,7 @@ tr {
   background: #c5c7c9;
   list-style: none;
 }
+
+.row--selected {
+  background: rgb(97, 223, 240);
+}

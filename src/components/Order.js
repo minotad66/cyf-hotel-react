@@ -15,7 +15,7 @@ class Orders extends Component {
   };
   removeOrder = () => {
     this.setState({
-      Orders: this.state.Orders - 1
+      Orders: this.state.Orders > 0 ? this.state.Orders - 1 : 0
     });
   };
   resetOrder = () => {

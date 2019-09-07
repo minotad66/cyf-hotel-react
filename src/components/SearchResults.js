@@ -1,32 +1,35 @@
 import React, { Component } from "react";
 import Moment from "moment";
 
-let i = 0;
-
 class SearchResults extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bgColor: ""
+      selected: []
     };
   }
 
-  handleClick = e => {
-    if (i % 2 !== 0) {
-      this.setState({ bgColor: "" });
-    } else {
-      this.setState({ bgColor: "red" });
-    }
+  handleClick = index => {
+    console.log(index);
 
-    i++;
+    let newState = [...this.state.selected];
+    console.log(newState);
+
+    newState[index] = !newState[index];
+    console.log(newState[index]);
+
+    this.setState({ selected: newState });
+    console.log(this.setState({ selected: newState }));
   };
-
   render() {
     let tableData = this.props.results;
-    let newTableData = tableData.map(infoData => (
+    let newTableData = tableData.map((infoData, i) => (
       <tr
-        onClick={this.handleClick}
-        style={{ backgroundColor: this.state.bgColor }}
+        key={infoData.id}
+        onClick={() => this.handleClick(i)} //ESTO HACE LO MISMO DE LA CLASE DE ABAJO
+        /*  className={this.state.selected[i] ? "row--selected" : ""} */ className={
+          this.state.selected[i] && "row--selected"
+        }
       >
         <th scope="row">{infoData.id}</th>
         <td>{infoData.title}</td>
@@ -43,12 +46,9 @@ class SearchResults extends Component {
     ));
 
     return (
-      <table className="table table-striped">
+      <table className="table">
         <thead>
-          <tr
-            onClick={this.handleClick}
-            style={{ backgroundColor: this.state.bgColor }}
-          >
+          <tr>
             <th scope="col" />
             <th scope="col">Title</th>
             <th scope="col">FirstName</th>
