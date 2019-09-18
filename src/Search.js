@@ -2,6 +2,28 @@ import React, { Component } from "react";
 import Button from "./components/Button";
 
 class Search extends Component {
+  setInputRef = input => {
+    this.input = input;
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchInput: ""
+    };
+  }
+
+  handleSearchInput = event => {
+    this.setState({
+      searchInput: event.target.value
+    });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.search(this.input.value);
+  };
+
   render() {
     return (
       <div className="search">
@@ -10,19 +32,23 @@ class Search extends Component {
         </div>
         <div className="row search-wrapper">
           <div className="col">
-            <div className="form-group search-box">
-              <label htmlFor="customerId">Customer Id</label>
+            <form
+              className="form-group search-box"
+              onSubmit={this.handleSubmit}
+            >
+              <label htmlFor="customerName">Customer name</label>
               <div className="search-row">
                 <input
-                  ref=""
+                  ref={this.setInputRef}
                   type="text"
-                  id="customerId"
+                  id="customerName"
                   className="form-control"
                   placeholder="Customer Id"
+                  onChange={this.handleSearchInput}
                 />
                 <Button />
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>

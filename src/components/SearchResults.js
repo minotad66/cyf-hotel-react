@@ -10,16 +10,9 @@ class SearchResults extends Component {
   }
 
   handleClick = index => {
-    console.log(index);
-
     let newState = [...this.state.selected];
-    console.log(newState);
-
     newState[index] = !newState[index];
-    console.log(newState[index]);
-
     this.setState({ selected: newState });
-    console.log(this.setState({ selected: newState }));
   };
   render() {
     let tableData = this.props.results;
@@ -27,9 +20,8 @@ class SearchResults extends Component {
       <tr
         key={infoData.id}
         onClick={() => this.handleClick(i)} //ESTO HACE LO MISMO DE LA CLASE DE ABAJO
-        /*  className={this.state.selected[i] ? "row--selected" : ""} */ className={
-          this.state.selected[i] && "row--selected"
-        }
+        /*  className={this.state.selected[i] ? "row--selected" : ""} */
+        className={this.state.selected[i] && "row--selected"}
       >
         <th scope="row">{infoData.id}</th>
         <td>{infoData.title}</td>
