@@ -54,6 +54,17 @@ tr {
   margin-top: 5px;
 }
 
+.button1 {
+  font-size: 1em;
+  font-family: Verdana, Helvetica;
+  color: white;
+  background: #1a66b3;
+  border: 5px;
+  width: 100%;
+  height: auto;
+  margin-top: 5px;
+}
+
 .results {
   padding-top: 15px;
 }
@@ -74,4 +85,43 @@ tr {
 
 .row--selected {
   background: rgb(97, 223, 240);
+}
+
+.form {
+  padding: 1em;
+  background: #f9f9f9;
+  border: 1px solid #c1c1c1;
+  margin-top: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+}
+.form input {
+  margin-bottom: 1rem;
+  background: #fff;
+  border: 1px solid #9c9c9c;
+}
+.form button {
+  background: #638cb5;
+  padding: 0.7em;
+  border: 0;
+}
+.form button:hover {
+  background: gold;
+}
+
+.label {
+  text-align: right;
+  display: block;
+  padding: 0.5em 1.5em 0.5em 0;
+}
+
+.input {
+  width: 100%;
+  padding: 0.7em;
+  margin-bottom: 0.5rem;
+}
+.input:focus {
+  outline: 3px solid gold;
 }

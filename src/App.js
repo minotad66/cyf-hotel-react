@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Bookings from "./Bookings";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Heading from "./components/Heading";
 import TouristInfoCards from "./components/TouristInfoCards";
 import Footer from "./components/Footer";

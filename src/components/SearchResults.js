@@ -1,13 +1,26 @@
 import React, { Component } from "react";
 import Moment from "moment";
+import "../App.css";
 
 class SearchResults extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: []
+      selected: [],
+      booking: {}
     };
   }
+
+  handleChange = event => {
+    const newBooking = { ...this.state.booking };
+    newBooking[event.target.name] = event.target.value;
+    this.setState({ booking: newBooking });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.addBooking(this.state.booking);
+  };
 
   handleClick = index => {
     let newState = [...this.state.selected];
@@ -38,22 +51,91 @@ class SearchResults extends Component {
     ));
 
     return (
-      <table className="table">
-        <thead>
-          <tr>
-            <th scope="col" />
-            <th scope="col">Title</th>
-            <th scope="col">FirstName</th>
-            <th scope="col">LastName</th>
-            <th scope="col">Email</th>
-            <th scope="col">RoomId</th>
-            <th scope="col">CheckInDate</th>
-            <th scope="col">CheckOutDate</th>
-            <th scope="col">Days</th>
-          </tr>
-        </thead>
-        <tbody>{newTableData}</tbody>
-      </table>
+      <div>
+        <table className="table form">
+          <thead>
+            <tr>
+              <th scope="col" />
+              <th scope="col">Title</th>
+              <th scope="col">FirstName</th>
+              <th scope="col">LastName</th>
+              <th scope="col">Email</th>
+              <th scope="col">RoomId</th>
+              <th scope="col">CheckInDate</th>
+              <th scope="col">CheckOutDate</th>
+              <th scope="col">Days</th>
+            </tr>
+          </thead>
+          <tbody>{newTableData}</tbody>
+        </table>
+        <form className="form" onSubmit={this.handleSubmit}>
+          <input
+            className="input"
+            placeholder="id"
+            name="id"
+            onChange={this.handleChange}
+            type="text"
+            required
+          />
+          <input
+            className="input"
+            placeholder="Title"
+            name="title"
+            onChange={this.handleChange}
+            type="text"
+            required
+          />
+          <input
+            className="input"
+            placeholder="name"
+            name="firstName"
+            onChange={this.handleChange}
+            type="text"
+            required
+          />
+          <input
+            className="input"
+            placeholder="last"
+            name="surname"
+            onChange={this.handleChange}
+            type="text"
+            required
+          />
+          <input
+            className="input"
+            placeholder="email"
+            name="email"
+            onChange={this.handleChange}
+            type="email"
+            required
+          />
+          <input
+            className="input"
+            placeholder="roomIs"
+            name="roomId"
+            onChange={this.handleChange}
+            type="text"
+            required
+          />
+          <input
+            className="input"
+            placeholder="checkInDate"
+            name="checkInDate"
+            onChange={this.handleChange}
+            type="date"
+            required
+          />
+          <input
+            className="input"
+            placeholder="checkOutDate"
+            name="checkOutDate"
+            onChange={this.handleChange}
+            type="date"
+            required
+          />
+          <button className="button1">Add</button>
+        </form>
+      </div>
     );
   }
 }

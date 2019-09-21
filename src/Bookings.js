@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import SearchResults from "./components/SearchResults";
 import Search from "./Search";
 
-export default class Bookings extends Component {
+class Bookings extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,10 +15,15 @@ export default class Bookings extends Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          fakeBookings: data
+          fakeBookings: data,
+          id: ""
         });
       });
   }
+
+  addBooking = booking => {
+    this.setState({ fakeBookings: [...this.state.fakeBookings, booking] });
+  };
 
   search = searchVal => {
     let infoarray = this.state.fakeBookings.filter(
@@ -42,7 +47,10 @@ export default class Bookings extends Component {
         <div className="container">
           <Search search={this.search} />
           {this.state.fakeBookings ? (
-            <SearchResults results={this.state.fakeBookings} />
+            <SearchResults
+              results={this.state.fakeBookings}
+              addBooking={this.addBooking}
+            />
           ) : (
             <h1>
               <i class="fas fa-spinner fa-3x" />
@@ -53,3 +61,5 @@ export default class Bookings extends Component {
     );
   }
 }
+
+export default Bookings;
