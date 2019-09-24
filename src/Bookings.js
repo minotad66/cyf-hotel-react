@@ -16,13 +16,94 @@ class Bookings extends Component {
       .then(data => {
         this.setState({
           fakeBookings: data,
-          id: ""
+          id: "",
+          dato: "email"
         });
       });
   }
 
   addBooking = booking => {
     this.setState({ fakeBookings: [...this.state.fakeBookings, booking] });
+  };
+
+  sortId = name => {
+    let states = [0, 0, 0, 0, 0, 0, 0, 0];
+    switch (name) {
+      case "id":
+        if (states[0] === 0) {
+          this.setState({
+            fakeBookings: this.state.fakeBookings.sort((a, b) => a.id - b.id)
+          });
+          states[0] = 1;
+        } else {
+          this.setState({
+            fakeBookings: this.state.fakeBookings.reverse()
+          });
+          states[0] = 0;
+        }
+
+        break;
+      case "firstName":
+        if (states[1] === 0) {
+          this.setState({
+            fakeBookings: this.state.fakeBookings.sort((a, b) => {
+              return a.firstName.localeCompare(b.firstName);
+            })
+          });
+          states[1] = 1;
+        } else {
+          this.setState({
+            fakeBookings: this.state.fakeBookings.reverse()
+          });
+          states[1] = 0;
+        }
+
+        break;
+      case "title":
+        this.setState({
+          fakeBookings: this.state.fakeBookings.sort((a, b) =>
+            a.title.localeCompare(b.title)
+          )
+        });
+        break;
+      case "surname":
+        this.setState({
+          fakeBookings: this.state.fakeBookings.sort((a, b) =>
+            a.surname.localeCompare(b.surname)
+          )
+        });
+        break;
+      case "email":
+        this.setState({
+          fakeBookings: this.state.fakeBookings.sort((a, b) =>
+            a.email.localeCompare(b.email)
+          )
+        });
+        break;
+      case "roomId":
+        this.setState({
+          fakeBookings: this.state.fakeBookings.sort(
+            (a, b) => a.roomId - b.roomId
+          )
+        });
+        break;
+      case "checkInDate":
+        this.setState({
+          fakeBookings: this.state.fakeBookings.sort((a, b) =>
+            a.checkInDate.localeCompare(b.checkInDate)
+          )
+        });
+        break;
+      case "checkOutDate":
+        this.setState({
+          fakeBookings: this.state.fakeBookings.sort((a, b) =>
+            a.checkOutDate.localeCompare(b.checkOutDate)
+          )
+        });
+        break;
+      default:
+        break;
+    }
   };
 
   search = searchVal => {
@@ -50,6 +131,7 @@ class Bookings extends Component {
             <SearchResults
               results={this.state.fakeBookings}
               addBooking={this.addBooking}
+              sortId={this.sortId}
             />
           ) : (
             <h1>

@@ -1,7 +1,6 @@
 .image-header {
-  animation: App-logo-spin infinite 60s linear;
   height: 60px;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-right: 2%;
   text-align: left;
 }

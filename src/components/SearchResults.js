@@ -55,15 +55,33 @@ class SearchResults extends Component {
         <table className="table form">
           <thead>
             <tr>
-              <th scope="col" />
-              <th scope="col">Title</th>
-              <th scope="col">FirstName</th>
-              <th scope="col">LastName</th>
-              <th scope="col">Email</th>
-              <th scope="col">RoomId</th>
-              <th scope="col">CheckInDate</th>
-              <th scope="col">CheckOutDate</th>
-              <th scope="col">Days</th>
+              <th scope="col" onClick={() => this.props.sortId("id")}>
+                Id
+              </th>
+              <th scope="col" onClick={() => this.props.sortId("title")}>
+                Title
+              </th>
+              <th scope="col" onClick={() => this.props.sortId("firstName")}>
+                FirstName
+              </th>
+              <th scope="col" onClick={() => this.props.sortId("surname")}>
+                LastName
+              </th>
+              <th scope="col" onClick={() => this.props.sortId("email")}>
+                Email
+              </th>
+              <th scope="col " onClick={() => this.props.sortId("roomId")}>
+                RoomId
+              </th>
+              <th scope="col " onClick={() => this.props.sortId("checkInDate")}>
+                CheckInDate
+              </th>
+              <th scope="col" onClick={() => this.props.sortId("checkOutDate")}>
+                CheckOutDate
+              </th>
+              <th scope="col" onClick={() => this.props.sortId("days")}>
+                Days
+              </th>
             </tr>
           </thead>
           <tbody>{newTableData}</tbody>
@@ -111,7 +129,7 @@ class SearchResults extends Component {
           />
           <input
             className="input"
-            placeholder="roomIs"
+            placeholder="roomId"
             name="roomId"
             onChange={this.handleChange}
             type="text"
